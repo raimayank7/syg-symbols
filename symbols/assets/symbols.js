@@ -18,5 +18,5 @@
       var hit=D.filter(function(x){return x[0]===q.value.trim()||x[1].indexOf(v)>-1||(x[2]&&x[2].indexOf(v)>-1)}).slice(0,120);out.hidden=false;var ul=out.querySelector('ul');ul.innerHTML='';
       out.querySelector('p').textContent=hit.length?hit.length+(hit.length===120?'+':'')+' symbols. Tap one to copy it.':'No symbol with that name here. Try a simpler word, such as "arrow", "star" or "heart".';
       hit.forEach(function(x){var li=document.createElement('li');li.appendChild(btn(x[0],x[1]));ul.appendChild(li)})};
-    q.addEventListener('input',function(){if(D)run();else if(!q.dataset.l){q.dataset.l=1;SYG.json('/data/s.json').then(function(d){D=d;run()})}})}
+    q.addEventListener('input',function(){if(D)run();else if(!q.dataset.l){q.dataset.l=1;SYG.json('/symbols/data/s.json').then(function(d){D=d;run()})}})}
 })();
